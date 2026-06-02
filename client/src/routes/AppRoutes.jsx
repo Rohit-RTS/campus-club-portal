@@ -6,7 +6,7 @@ import Home from "../pages/Home";
 import Event from "../pages/Event";
 import Clubs from "../pages/Clubs";
 import About from "../pages/About";
-
+import Contact from "../pages/Contact";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -15,6 +15,7 @@ export default function AppRoutes() {
         <Route path="/events" element={<Event />} />
         <Route path="/clubs" element={<Clubs />} />
         <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
       </Route>
     </Routes>
   );
