@@ -1,0 +1,20 @@
+{
+  "name": "campus-club-portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rohit-RTS/campus-club-portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rohit-RTS/campus-club-portal/issues"
+  },
+  "homepage": "https://github.com/Rohit-RTS/campus-club-portal#readme"
+}
