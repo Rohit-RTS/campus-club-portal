@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
@@ -6,29 +7,68 @@ function Navbar() {
       <div className="navbar-container">
 
         {/* Logo */}
-        <a href="/" className="navbar-logo">
+        <NavLink to="/" className="navbar-logo">
           ClubHub
-        </a>
+        </NavLink>
 
         {/* Navigation */}
         <div className="navbar-links">
-          <a href="/" className="active">Home</a>
-          <a href="/clubs">Clubs</a>
-          <a href="/events">Events</a>
-          <a href="/announcements">Announcements</a>
-          <a href="/gallery">Gallery</a>
-          <a href="/about">About</a>
+
+          <NavLink
+            to="/"
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/clubs"
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            Clubs
+          </NavLink>
+
+          <NavLink
+            to="/events"
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            Events
+          </NavLink>
+
+          <NavLink
+            to="/announcements"
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            Announcements
+          </NavLink>
+
+          <NavLink
+            to="/gallery"
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            Gallery
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) => isActive ? "active" : ""}
+          >
+            About
+          </NavLink>
+
         </div>
 
         {/* Buttons */}
         <div className="navbar-actions">
-          <a href="/login" className="login-btn">
-            Login
-          </a>
 
-          <a href="/register" className="register-btn">
+          <NavLink to="/login" className="login-btn">
+            Login
+          </NavLink>
+
+          <NavLink to="/register" className="register-btn">
             Register
-          </a>
+          </NavLink>
+
         </div>
 
       </div>

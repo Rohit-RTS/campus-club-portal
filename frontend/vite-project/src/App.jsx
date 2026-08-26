@@ -1,22 +1,8 @@
-import { useState } from 'react'
+import "./App.css";
+import AppRoutes from "./routes/AppRoutes";
 
-import './App.css'
-import Navbar from "./components/Navbar"
-import Footer from './components/Footer'
-
- function App() {
- 
-
-  return<>
-       <Navbar/>
-        <Footer/>
-
-
-  </>
-
-
-
+function App() {
+  return <AppRoutes />;
 }
-
 
 export default App;
