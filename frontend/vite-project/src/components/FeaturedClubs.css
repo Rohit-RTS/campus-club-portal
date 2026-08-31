@@ -1,0 +1,116 @@
+.featured-clubs {
+  width: 100%;
+  background: #f8fafc;
+}
+
+.featured-clubs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 80px 40px;
+}
+
+/* Header */
+
+.featured-clubs-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+}
+
+.section-label {
+  margin: 0 0 8px;
+
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.featured-clubs-header h2 {
+  margin: 0 0 10px;
+
+  color: #0f172a;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.section-description {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* View All */
+
+.view-all-clubs {
+  color: #2563eb;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+.view-all-clubs:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+
+.featured-clubs-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .featured-clubs-container {
+    padding: 70px 30px;
+  }
+
+  .featured-clubs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .featured-clubs-container {
+    padding: 60px 20px;
+  }
+
+  .featured-clubs-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .featured-clubs-header h2 {
+    font-size: 28px;
+  }
+
+  .featured-clubs-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
