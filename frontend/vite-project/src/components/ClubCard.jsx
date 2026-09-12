@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./ClubCard.css";
 
-function ClubCard({ club }) {
+function ClubCard({club}) {
   return (
     <div className="club-card">
 
@@ -25,7 +25,7 @@ function ClubCard({ club }) {
 
       </div>
 
-      {/* View Club */}
+    
       <NavLink
         to={`/clubs/${club.id}`}
         className="club-card-link"

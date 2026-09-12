@@ -84,12 +84,14 @@ function Clubs() {
 
           <div className="clubs-grid">
 
-            {clubs.map((club) => (
-              <ClubCard
-                key={club.id}
-                club={club}
-              />
-            ))}
+            {
+               clubs.map((club)=>{
+                   <ClubCard
+                   key={club.id}
+                   club={club}
+                   />
+               })
+            }
 
           </div>
 
