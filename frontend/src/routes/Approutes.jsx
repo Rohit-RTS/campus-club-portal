@@ -6,7 +6,7 @@ import Clubs from "../pages/Clubs";
 import Events from "../pages/Events";
 import Announcements from "../pages/Announcements";
 import Gallery from "../pages/Gallery";
-
+import Login from "../pages/Login";
 function AppRoutes() {
   return (
     <Routes>
@@ -16,8 +16,11 @@ function AppRoutes() {
         <Route path="/events" element={<Events />} />
         <Route path="/announcements" element={<Announcements />} />
          <Route path="/gallery" element={<Gallery />} />
+        
       </Route>
+        <Route path="/login" element={<Login />} />
     </Routes>
+    
   );
 }
 
