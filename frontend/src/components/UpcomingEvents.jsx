@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import EventCard from "./EventCard";
 
-import "./UpcomingEvents.css";
-
 function UpcomingEvents() {
-
   const upcomingEvents = [
     {
       id: 1,
@@ -36,38 +33,38 @@ function UpcomingEvents() {
   ];
 
   return (
-    <section className="upcoming-events">
+    <section className="w-full bg-white">
 
-      <div className="upcoming-events-container">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
 
         {/* Header */}
-
-        <div className="upcoming-events-header">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 
           <div>
-            <p className="section-label">
+            <p className="mb-2 text-sm font-semibold tracking-widest text-blue-600">
               WHAT'S HAPPENING
             </p>
 
-            <h2>Upcoming Events</h2>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+              Upcoming Events
+            </h2>
 
-            <p className="section-description">
+            <p className="mt-3 text-slate-600">
               Don't miss what's happening around campus.
             </p>
           </div>
 
           <NavLink
             to="/events"
-            className="view-all-events"
+            className="font-semibold text-blue-600 transition-colors duration-200 hover:text-blue-700"
           >
             View All Events →
           </NavLink>
 
         </div>
 
-        {/* Events */}
-
-        <div className="events-grid">
+        {/* Events Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
           {upcomingEvents.map((event) => (
             <EventCard

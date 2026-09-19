@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 import ClubCard from "./ClubCard";
 
-import "./FeaturedClubs.css";
-
 function FeaturedClubs() {
   const featuredClubs = [
     {
@@ -29,28 +27,30 @@ function FeaturedClubs() {
   ];
 
   return (
-    <section className="featured-clubs">
+    <section className="w-full bg-slate-50">
 
-      <div className="featured-clubs-container">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
 
         {/* Section Header */}
-        <div className="featured-clubs-header">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 
           <div>
-            <p className="section-label">
+            <p className="mb-2 text-sm font-semibold tracking-widest text-blue-600">
               DISCOVER
             </p>
 
-            <h2>Featured Clubs</h2>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+              Featured Clubs
+            </h2>
 
-            <p className="section-description">
+            <p className="mt-3 max-w-xl text-slate-600">
               Explore communities and find a club that matches your interests.
             </p>
           </div>
 
           <NavLink
             to="/clubs"
-            className="view-all-clubs"
+            className="font-semibold text-blue-600 transition-colors duration-200 hover:text-blue-700"
           >
             View All Clubs →
           </NavLink>
@@ -58,7 +58,7 @@ function FeaturedClubs() {
         </div>
 
         {/* Club Cards */}
-        <div className="featured-clubs-grid">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
           {featuredClubs.map((club) => (
             <ClubCard

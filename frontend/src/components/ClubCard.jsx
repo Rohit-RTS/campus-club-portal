@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
-import "./ClubCard.css";
+
+
 
 function ClubCard({club}) {
   return (
-    <div className="club-card">
+    <div className="p-5 bg-white rounded-2xl hover:bg" >
 
       {/* Club Icon */}
       <div className="club-card-icon">

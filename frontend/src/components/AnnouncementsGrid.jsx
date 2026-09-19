@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import AnnouncementCard from "./AnnouncementCard";
 
-import "./AnnouncementsGrid.css";
-
 function AnnouncementsGrid() {
-
   const announcements = [
     {
       id: 1,
@@ -35,29 +32,30 @@ function AnnouncementsGrid() {
   ];
 
   return (
-    <section className="announcements">
+    <section className="w-full bg-white">
 
-      <div className="announcements-container">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
 
         {/* Header */}
-
-        <div className="announcements-header">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 
           <div>
-            <p className="section-label">
+            <p className="mb-2 text-sm font-semibold tracking-widest text-blue-600">
               STAY UPDATED
             </p>
 
-            <h2>Latest Announcements</h2>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+              Latest Announcements
+            </h2>
 
-            <p className="section-description">
+            <p className="mt-3 text-slate-600">
               Stay updated with the latest news from campus clubs.
             </p>
           </div>
 
           <NavLink
             to="/announcements"
-            className="view-all-announcements"
+            className="font-semibold text-blue-600 transition-colors duration-200 hover:text-blue-700"
           >
             View All →
           </NavLink>
@@ -65,8 +63,7 @@ function AnnouncementsGrid() {
         </div>
 
         {/* Grid */}
-
-        <div className="announcements-grid">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
           {announcements.map((announcement) => (
             <AnnouncementCard

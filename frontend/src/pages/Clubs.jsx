@@ -1,7 +1,4 @@
 import ClubCard from "../components/ClubCard";
-// import ClubFilters from "../components/ClubFilters";
-
-import "./Clubs.css";
 
 function Clubs() {
   const clubs = [
@@ -50,21 +47,22 @@ function Clubs() {
   ];
 
   return (
-    <main className="clubs-page">
+    <main className="w-full">
 
       {/* Page Header */}
+      <section className="bg-slate-900">
 
-      <section className="clubs-header">
+        <div className="mx-auto max-w-7xl px-6 py-16 text-center md:px-10 md:py-20">
 
-        <div className="clubs-header-container">
-
-          <p className="clubs-label">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-blue-400">
             CAMPUS COMMUNITY
           </p>
 
-          <h1>Explore Clubs</h1>
+          <h1 className="text-4xl font-bold text-white md:text-5xl">
+            Explore Clubs
+          </h1>
 
-          <p>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
             Discover clubs, meet like-minded students,
             and explore new interests.
           </p>
@@ -73,25 +71,20 @@ function Clubs() {
 
       </section>
 
-      {/* Filters */}
+      {/* Clubs Content */}
+      <section className="w-full bg-slate-50">
 
-      <section className="clubs-content">
-
-        <div className="clubs-container">
-
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
 
           {/* Clubs Grid */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-          <div className="clubs-grid">
-
-            {
-               clubs.map((club)=>{
-                   <ClubCard
-                   key={club.id}
-                   club={club}
-                   />
-               })
-            }
+            {clubs.map((club) => (
+              <ClubCard
+                key={club.id}
+                club={club}
+              />
+            ))}
 
           </div>
 

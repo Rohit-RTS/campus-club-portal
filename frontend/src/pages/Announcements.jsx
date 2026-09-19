@@ -1,8 +1,5 @@
 import AnnouncementCard from "../components/AnnouncementCard";
 
-
-import "./Announcements.css";
-
 function Announcements() {
   const announcements = [
     {
@@ -56,21 +53,22 @@ function Announcements() {
   ];
 
   return (
-    <main className="announcements-page">
+    <main className="w-full">
 
       {/* Page Header */}
+      <section className="bg-slate-900">
 
-      <section className="announcements-page-header">
+        <div className="mx-auto max-w-7xl px-6 py-16 text-center md:px-10 md:py-20">
 
-        <div className="announcements-page-header-container">
-
-          <p className="announcements-page-label">
+          <p className="mb-3 text-sm font-semibold tracking-widest text-blue-400">
             CAMPUS UPDATES
           </p>
 
-          <h1>Announcements</h1>
+          <h1 className="text-4xl font-bold text-white md:text-5xl">
+            Announcements
+          </h1>
 
-          <p>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
             Stay updated with the latest news, notices,
             and updates from campus clubs.
           </p>
@@ -80,15 +78,12 @@ function Announcements() {
       </section>
 
       {/* Announcements Content */}
+      <section className="w-full bg-slate-50">
 
-      <section className="announcements-page-content">
-
-        <div className="announcements-page-container">
-
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
 
           {/* Announcements Grid */}
-
-          <div className="announcements-page-grid">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
             {announcements.map((announcement) => (
               <AnnouncementCard
