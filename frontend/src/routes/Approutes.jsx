@@ -7,6 +7,7 @@ import Events from "../pages/Events";
 import Announcements from "../pages/Announcements";
 import Gallery from "../pages/Gallery";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 function AppRoutes() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ function AppRoutes() {
         
       </Route>
         <Route path="/login" element={<Login />} />
+         <Route path="/register" element={<Register />} />
     </Routes>
     
   );
