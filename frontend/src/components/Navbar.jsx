@@ -12,6 +12,7 @@ function Navbar() {
     { name: "Gallery", path: "/gallery" },
     { name: "About", path: "/about" },
      { name: "Login", path: "/login" },
+     { name: "Dashboard", path: "/dashboard" },
   ];
 
   return (
@@ -45,10 +46,18 @@ function Navbar() {
         </div>
 
         {/* Desktop Login */}
-        <div className="hidden md:flex">
+        <div className="hidden md:flex ">
           <NavLink
+            to="/dashboard"
+            className="  rounded-lg border border-blue-600 px-4 py-2 
+            text-blue-600 hover:bg-blue-50"
+          >
+            Dashboard
+          </NavLink>
+
+           <NavLink
             to="/login"
-            className="rounded-lg border border-blue-600 px-4 py-2 text-blue-600 hover:bg-blue-50"
+            className="p-2 rounded-lg border border-blue-600 px-4 py-2 text-blue-600 hover:bg-blue-50"
           >
             Login
           </NavLink>
@@ -102,6 +111,16 @@ function Navbar() {
           >
             Login
           </NavLink>
+
+          <NavLink
+            to="/dashboard"
+            onClick={() => setIsOpen(false)}
+            className="rounded-lg border border-blue-600 px-4 py-2 text-center text-blue-600 hover:bg-blue-50"
+          >
+            Dashboard
+          </NavLink>
+          
+          
 
         </div>
       </div>
