@@ -23,11 +23,35 @@ export default function Register() {
     }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+async function handleSubmit(e) {
+  e.preventDefault();
 
-    console.log(formData);
+  if (formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match");
+    return;
   }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+   if (response.ok) {
+            alert(data.message);
+        } else {
+            alert(data.message || "Registration failed");
+        }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
   return (
     <>
@@ -271,7 +295,7 @@ export default function Register() {
                          transition duration-200
                          hover:bg-blue-600
                          active:scale-[0.98]"
-            >
+          >
               Register
             </button>
 

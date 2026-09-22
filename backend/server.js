@@ -1,13 +1,21 @@
-const http = require('http');
+const express = require("express");
+const cors = require("cors");
+
+const authRoutes = require("./routes/authRoutes");
+
+const app = express();
 
 const port = 5000;
 
-const server = http.createServer((req,res)=>{
-     res.end("hello");
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/auth", authRoutes);
+
+app.get("/", (req, res) => {
+    res.send("this is the server started");
 });
 
-server.listen(port,()=>{
-      console.log("server is running on port 5000");
-})
-
-
+app.listen(port, () => {
+    console.log(`app is listening on port ${port}`);
+});
