@@ -1,4 +1,4 @@
-function Stats() {
+function Stats(props) {
   return (
     <section className="w-full bg-slate-50">
 

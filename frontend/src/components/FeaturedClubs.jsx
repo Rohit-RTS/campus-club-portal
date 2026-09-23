@@ -1,31 +1,25 @@
 import { NavLink } from "react-router-dom";
 import ClubCard from "./ClubCard";
-
+import { useState } from "react";
+import { useEffect } from "react";
 function FeaturedClubs() {
-  const featuredClubs = [
-    {
-      id: 1,
-      name: "Coding Club",
-      category: "Technology",
-      description: "Learn programming and build real-world projects.",
-      icon: "💻",
-    },
-    {
-      id: 2,
-      name: "Robotics Club",
-      category: "Engineering",
-      description: "Explore robotics, automation and hardware projects.",
-      icon: "🤖",
-    },
-    {
-      id: 3,
-      name: "Cultural Club",
-      category: "Arts & Culture",
-      description: "Participate in creative and cultural activities.",
-      icon: "🎭",
-    },
-  ];
 
+  const [featuredClubs,setfeaturedClubs] = useState([]);
+
+  useEffect(()=>{
+
+    
+    fetch("http://localhost:5000/api/club")
+    .then((response)=>response.json())
+     .then((data)=>{
+        setfeaturedClubs(data);
+     })
+       .catch((error) => {
+                console.log(error);
+            });
+
+  },[]);
+  
   return (
     <section className="w-full bg-slate-50">
 
@@ -60,7 +54,7 @@ function FeaturedClubs() {
         {/* Club Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-          {featuredClubs.map((club) => (
+          {featuredClubs.slice(0,3).map((club) => (
             <ClubCard
               key={club.id}
               club={club}
