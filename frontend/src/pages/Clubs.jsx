@@ -1,26 +1,13 @@
-import { useState } from "react";
+
+import { useContext } from "react";
 import ClubCard from "../components/ClubCard";
-import { useEffect } from "react";
+import { ClubsContext } from "../context/ClubsContext";
 
 
 function Clubs() {
 
+  const {clubs} = useContext(ClubsContext);
 
-
-const [clubs,setClubs] = useState([]);
-   useEffect(() => {
-
-        fetch("http://localhost:5000/api/club")
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Data from backend:", data);
-                setClubs(data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
-    }, []);
 
 
   return (

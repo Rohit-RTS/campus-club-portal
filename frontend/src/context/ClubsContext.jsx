@@ -1,16 +1,24 @@
-// import { createContext, useEffect, useState } from "react";
-// import { useResolvedPath } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
 
-// export const ClubsContext  = createContext();
+export const ClubsContext = createContext();
 
+export function ClubsProvider({ children }) {
+    const [clubs, setClubs] = useState([]);
 
-// export function clubsProvider(){
+    useEffect(() => {
+        fetch("http://localhost:5000/api/club")
+            .then((response) => response.json())
+            .then((data) => {
+                setClubs(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
-//     const[clubs,setClubs] = useState([]);
-
-
-
-
-// }
-
-
+    return (
+        <ClubsContext.Provider value={{ clubs }}>
+            {children}
+        </ClubsContext.Provider>
+    );
+}

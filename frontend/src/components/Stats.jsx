@@ -1,4 +1,10 @@
-function Stats(props) {
+import { useContext } from "react";
+import { ClubsContext } from "../context/ClubsContext";
+
+function Stats() {
+
+  const {clubs} = useContext(ClubsContext);
+
   return (
     <section className="w-full bg-slate-50">
 
@@ -7,7 +13,7 @@ function Stats(props) {
         {/* Active Clubs */}
         <div className="text-center">
           <h2 className="text-3xl font-bold text-blue-600 md:text-4xl">
-            25+
+            {clubs.length}
           </h2>
 
           <p className="mt-2 text-sm text-slate-600 md:text-base">
