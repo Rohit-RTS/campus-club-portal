@@ -1,26 +1,62 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import Register from "../pages/Register";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 
 export default function LoginForm() {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
 
-  function handlesubmit(e) {
-    e.preventDefault();
+  const navigate = useNavigate();
+  const[loginData,setloginData] = useState({
+    email: "",
+    password :""
+   
+  });
 
-    const formdata = {
-      email,
-      password,
-    };
 
-    console.log(formdata);
+function handleChange(e){
+   const {name,value} = e.target;
+     setloginData((prev)=>({
+      ...prev,
+      [name]:value
+
+     }));
+
+     console.log(loginData);
+}
+
+async function handleSubmit(e) {
+  e.preventDefault();
+
+     
+    try {
+    const response = await fetch("http://localhost:5000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(loginData)
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+   if (response.ok) {
+            alert(data.message);
+            navigate("/dashboard");
+
+        } else {
+            alert(data.message || "Registration failed");
+        }
+  } catch (error) {
+    console.error(error);
   }
+  
+}
 
   return <>
        
      <div className="h-screen w-full flex justify-center items-center">
-    <form onSubmit={handlesubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="w-96 rounded-2xl bg-white p-8 shadow-xl border border-gray-200">
 
         {/* Heading */}
@@ -45,8 +81,9 @@ export default function LoginForm() {
           <input
             id="email"
             type="email"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
+            name = "email"
+            value={loginData.email}
+            onChange={handleChange}
             placeholder="Enter your email"
             className="h-11 w-full rounded-lg border border-gray-300 px-4
                        outline-none transition
@@ -66,8 +103,9 @@ export default function LoginForm() {
           <input
             id="password"
             type="password"
-            value={password}
-            onChange={(e) => setpassword(e.target.value)}
+            name="password"
+            value={loginData.password}
+            onChange={handleChange}
             placeholder="Enter your password"
             className="h-11 w-full rounded-lg border border-gray-300 px-4
                        outline-none transition
@@ -87,7 +125,6 @@ export default function LoginForm() {
           Login
         </button>
 
-        {/* Bottom text */}
         <p className="mt-6 text-center text-sm text-gray-500">
           Don't have an account?
              <NavLink to = "/register" path="/register">

@@ -9,6 +9,7 @@ import Gallery from "../pages/Gallery";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
+import ClubDetails from "../pages/ClubDetails";
 function AppRoutes() {
   return (
     <Routes>
@@ -20,6 +21,9 @@ function AppRoutes() {
          <Route path="/gallery" element={<Gallery />} />
 
          <Route path="/dashboard" element={<Dashboard/>}/>
+
+         <Route path="/clubs/:clubId" element={<ClubDetails/>}/>
+
         
       </Route>
         <Route path="/login" element={<Login />} />

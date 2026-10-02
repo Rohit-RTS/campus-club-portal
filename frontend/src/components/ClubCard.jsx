@@ -1,10 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-
-
-function ClubCard({club}) {
+function ClubCard({ club }) {
   return (
-    <div className="p-5 bg-white rounded-2xl hover:bg" >
+    <div className="p-5 bg-white rounded-2xl">
 
       {/* Club Icon */}
       <div className="club-card-icon">
@@ -26,13 +24,9 @@ function ClubCard({club}) {
 
       </div>
 
-    
-      <NavLink
-        to={`/clubs/${club.id}`}
-        className="club-card-link"
-      >
+      <Link to={`/clubs/${club.club_id}`}>
         View Club →
-      </NavLink>
+      </Link>
 
     </div>
   );
