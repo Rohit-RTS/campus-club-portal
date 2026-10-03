@@ -69,8 +69,39 @@ WHERE c.club_id = ?;
             });
 
           }
+        
+           const members = result
+    .filter(row => row.member_id !== null)
+    .map(row => ({
+        id: row.member_id,
+        name: row.member_name,
+        email: row.member_email,
+        department: row.member_department,
+        year: row.member_year,
+        roll_number: row.member_roll_number,
+        phone: row.member_phone
+    }));
 
-           res.status(200).json(result[0]);
+const club = {
+    club_id: result[0].club_id,
+    club_name: result[0].club_name,
+    description: result[0].description,
+    category: result[0].category,
+
+    faculty_id: result[0].faculty_id,
+    faculty_name: result[0].faculty_name,
+    faculty_email: result[0].faculty_email,
+
+    club_head_id: result[0].club_head_id,
+    club_head_name: result[0].club_head_name,
+    club_head_email: result[0].club_head_email,
+
+    total_members: members.length,
+
+    members: members
+};
+
+res.json(club);
 
 
          
